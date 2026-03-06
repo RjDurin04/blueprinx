@@ -1,0 +1,20 @@
+{
+  "name": "fullstack-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "devDependencies": {
+    "turbo": "^1.12.4",
+    "typescript": "^5.3.3",
+    "@types/node": "^20.11.20",
+    "concurrently": "^8.2.2"
+  }
+}
