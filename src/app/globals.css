@@ -222,10 +222,14 @@ pre {
   -webkit-overflow-scrolling: touch;
   overflow-wrap: break-word;
   word-break: break-word;
-  contain: inline-size;
-  /* CRITICAL: locks width independent of children — prevents viewport expansion */
   overflow-x: hidden;
-  /* explicit CSS backup for Tailwind class */
+}
+
+/* ── Lock markdown width on mobile to prevent viewport zoom ── */
+@media (max-width: 1024px) {
+  .markdown-content {
+    contain: inline-size;
+  }
 }
 
 /* ── Optimize off-screen content rendering ── */
