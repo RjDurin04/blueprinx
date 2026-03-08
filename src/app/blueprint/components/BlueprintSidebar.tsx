@@ -35,7 +35,7 @@ export const BlueprintSidebar = React.memo(function BlueprintSidebar({
 
     return (
         <div
-            className="w-full lg:sticky lg:top-8 flex flex-col gap-3 sm:gap-4 p-3 sm:p-5 md:p-6 border border-[#E8E4E0] bg-[#FAFAF7] shadow-[var(--shadow-float)] lg:max-h-[calc(100dvh-4rem)] overflow-y-auto scrollbar-hide"
+            className="w-full lg:sticky lg:top-8 flex flex-col gap-3 sm:gap-4 p-3 sm:p-5 md:p-6 border border-[#E8E4E0] bg-[#FAFAF7] shadow-[var(--shadow-float)] lg:max-h-[calc(100dvh-4rem)] overflow-y-auto lg:overflow-hidden scrollbar-hide"
             style={{ borderRadius: 'var(--radius)' }}
         >
             <div className="flex items-center gap-2 mb-0.5 sm:mb-1 pb-2 sm:pb-3 border-b border-[#E8E4E0] shrink-0">
@@ -97,14 +97,14 @@ export const BlueprintSidebar = React.memo(function BlueprintSidebar({
 
             {/* ── Table of Contents ── */}
             {!isGenerating && tableOfContents.length > 0 && (
-                <div className="hidden lg:flex flex-col gap-2 sm:gap-2.5 mt-3 sm:mt-5 pt-3 sm:pt-5 border-t border-[#E8E4E0] w-full shrink-0">
+                <div className="hidden lg:flex flex-col gap-2 sm:gap-2.5 mt-3 sm:mt-5 pt-3 sm:pt-5 border-t border-[#E8E4E0] w-full flex-1 min-h-0">
                     <div className="flex items-center gap-2 mb-0.5 sm:mb-1 shrink-0">
                         <AlignLeft className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#0C0C1D]" />
                         <h3 className="text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.2em] text-[#0C0C1D]">
                             Sections
                         </h3>
                     </div>
-                    <div className="flex flex-col gap-1 sm:gap-1.5 pr-2">
+                    <div className="flex flex-col gap-1 sm:gap-1.5 pr-2 overflow-y-auto pb-2">
                         {tableOfContents.map((item, idx) => (
                             <button
                                 key={`${idx}-${item.text}`}

@@ -116,10 +116,10 @@ const Code = ({ node: _node, inline, className, children, ...props }: MdCodeProp
 
 const Table = ({ node: _node, ...props }: MdProps) => (
     <div
-        className="my-8 w-full overflow-x-auto border border-[#E8E4E0]"
+        className="my-8 w-full max-w-full overflow-x-auto border border-[#E8E4E0]"
         style={{ borderRadius: 'var(--radius)' }}
     >
-        <table className="w-full text-[13px]" {...props} />
+        <table className="w-full min-w-max text-[13px]" {...props} />
     </div>
 );
 
