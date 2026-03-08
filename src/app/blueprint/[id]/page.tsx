@@ -189,8 +189,8 @@ export default function SavedBlueprintPage() {
                 <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
-            <div className="w-full mx-auto flex flex-col items-center px-3 sm:px-6 md:px-8 max-w-[1200px]">
-                <div className="w-full flex flex-col lg:grid lg:grid-cols-[280px_1fr] xl:grid-cols-[300px_1fr] gap-4 sm:gap-6 lg:gap-8 xl:gap-12 mt-4 sm:mt-6 lg:mt-8 mb-16 sm:mb-24 lg:mb-32 items-start">
+            <div className="w-full mx-auto flex flex-col px-3 sm:px-6 md:px-8 max-w-[1200px]">
+                <div className="w-full flex flex-col lg:grid lg:grid-cols-[280px_1fr] xl:grid-cols-[300px_1fr] gap-4 sm:gap-6 lg:gap-8 xl:gap-12 mt-4 sm:mt-6 lg:mt-8 mb-16 sm:mb-24 lg:mb-32 lg:items-start">
 
                     {/* ── Sidebar ── */}
                     <BlueprintSidebar
