@@ -178,7 +178,7 @@ export default function SavedBlueprintPage() {
     }
 
     return (
-        <div className="min-h-dvh bg-[#FAFAF7] selection:bg-[#C8956C]/20 overflow-x-hidden">
+        <div className="min-h-dvh bg-[#FAFAF7] selection:bg-[#C8956C]/20">
             {/* Scroll to Top */}
             <button
                 onClick={scrollToTop}
