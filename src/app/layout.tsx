@@ -39,7 +39,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrains.variable} font-[family-name:var(--font-inter)] antialiased`}
       >
-        <div className="relative min-h-screen min-h-dvh flex flex-col">
+        <div className="relative min-h-screen min-h-dvh flex flex-col overflow-x-hidden w-full max-w-[100vw]">
           {/* ── Noise texture overlay ── */}
           <div className="noise-texture fixed inset-0 pointer-events-none z-[100]" />
 

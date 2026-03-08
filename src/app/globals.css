@@ -292,7 +292,7 @@ html {
 
   .markdown-content,
   .scrollbar-hide {
-    touch-action: pan-y;
+    touch-action: manipulation;
     -webkit-overflow-scrolling: touch;
   }
 }
