@@ -178,7 +178,7 @@ export default function SavedBlueprintPage() {
     }
 
     return (
-        <div className="min-h-dvh w-full max-w-full overflow-x-hidden flex flex-col bg-[#FAFAF7] selection:bg-[#C8956C]/20">
+        <div className="min-h-dvh w-full max-w-full overflow-x-clip flex flex-col bg-[#FAFAF7] selection:bg-[#C8956C]/20">
             {/* Scroll to Top */}
             <button
                 onClick={scrollToTop}
