@@ -35,22 +35,22 @@ export const BlueprintSidebar = React.memo(function BlueprintSidebar({
 
     return (
         <div
-            className="w-full lg:sticky lg:top-8 flex flex-col gap-3 sm:gap-4 p-3 sm:p-5 md:p-6 border border-[#E8E4E0] bg-[#FAFAF7] shadow-[var(--shadow-float)] lg:max-h-[calc(100dvh-4rem)] lg:overflow-hidden"
+            className="w-full lg:sticky lg:top-8 flex flex-col gap-3 sm:gap-4 p-3 sm:p-5 md:p-6 border border-[#E8E4E0] bg-[#FAFAF7] shadow-[var(--shadow-float)] lg:max-h-[calc(100dvh-4rem)] overflow-y-auto scrollbar-hide"
             style={{ borderRadius: 'var(--radius)' }}
         >
-            <div className="flex items-center gap-2 mb-0.5 sm:mb-1 pb-2 sm:pb-3 border-b border-[#E8E4E0]">
+            <div className="flex items-center gap-2 mb-0.5 sm:mb-1 pb-2 sm:pb-3 border-b border-[#E8E4E0] shrink-0">
                 <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#0C0C1D]" />
                 <h3 className="text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.2em] text-[#0C0C1D]">
                     Saved Plan
                 </h3>
             </div>
 
-            <p className="text-[10px] sm:text-[11px] text-[#6E6E7A] leading-[1.6] mb-1">
+            <p className="text-[10px] sm:text-[11px] text-[#6E6E7A] leading-[1.6] mb-1 shrink-0">
                 {prompt.slice(0, 150)}{prompt.length > 150 ? '...' : ''}
             </p>
 
             {isGenerating && (
-                <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-[#F0EDE8] flex items-center gap-2.5 text-[#C8956C]">
+                <div className="mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-[#F0EDE8] flex items-center gap-2.5 text-[#C8956C] shrink-0">
                     <Loader2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 animate-spin" />
                     <span className="text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.15em]">
                         Processing...
@@ -59,7 +59,7 @@ export const BlueprintSidebar = React.memo(function BlueprintSidebar({
             )}
 
             {error && (
-                <div className="flex flex-col gap-2 mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-[#F0EDE8]">
+                <div className="flex flex-col gap-2 mt-2 sm:mt-3 pt-2 sm:pt-3 border-t border-[#F0EDE8] shrink-0">
                     <div className="text-[9px] sm:text-[10px] text-[#D94F4F]">
                         {error}
                     </div>
@@ -97,14 +97,14 @@ export const BlueprintSidebar = React.memo(function BlueprintSidebar({
 
             {/* ── Table of Contents ── */}
             {!isGenerating && tableOfContents.length > 0 && (
-                <div className="hidden lg:flex flex-col gap-2 sm:gap-2.5 mt-3 sm:mt-5 pt-3 sm:pt-5 border-t border-[#E8E4E0] w-full min-h-0 flex-1 overflow-hidden">
+                <div className="hidden lg:flex flex-col gap-2 sm:gap-2.5 mt-3 sm:mt-5 pt-3 sm:pt-5 border-t border-[#E8E4E0] w-full shrink-0">
                     <div className="flex items-center gap-2 mb-0.5 sm:mb-1 shrink-0">
                         <AlignLeft className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#0C0C1D]" />
                         <h3 className="text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.2em] text-[#0C0C1D]">
                             Sections
                         </h3>
                     </div>
-                    <div className="flex flex-col gap-1 sm:gap-1.5 overflow-y-auto scrollbar-hide pr-2 flex-1 min-h-0">
+                    <div className="flex flex-col gap-1 sm:gap-1.5 pr-2">
                         {tableOfContents.map((item, idx) => (
                             <button
                                 key={`${idx}-${item.text}`}
