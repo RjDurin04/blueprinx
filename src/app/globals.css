@@ -186,13 +186,6 @@ pre {
     font-size: 12px;
     padding: 0.75rem;
   }
-
-  table {
-    font-size: 12px;
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
 }
 
 /* ═══════════════════════════════════════════════════════
