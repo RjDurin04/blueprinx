@@ -261,7 +261,7 @@ export default function SavedBlueprintPage() {
                             <>
                                 {/* Actions Bar */}
                                 <div
-                                    className="absolute top-4 right-4 sm:top-6 sm:right-6 flex gap-1 sm:gap-2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity bg-[#FAFAF7] p-1 border border-[#E8E4E0] shadow-sm z-10"
+                                    className="flex gap-1 sm:gap-2 sm:absolute sm:top-6 sm:right-6 mb-4 sm:mb-0 self-end opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity bg-[#FAFAF7] p-1 border border-[#E8E4E0] shadow-sm z-10"
                                     style={{ borderRadius: 'var(--radius)' }}
                                 >
                                     <button onClick={handleCopy} className="min-h-[44px] min-w-[44px] flex items-center justify-center text-[#6E6E7A] hover:text-[#0C0C1D] hover:bg-[#F0EDE8] transition-colors rounded-md" title="Copy plan">
