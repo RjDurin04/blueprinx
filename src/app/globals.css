@@ -271,3 +271,31 @@ html {
 html {
   scrollbar-gutter: stable;
 }
+
+/* ── Scrollbar-hide utility for sidebars/ToC ── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Touch-action: improve scroll performance on mobile ── */
+@media (max-width: 1024px) {
+
+  .markdown-content,
+  .scrollbar-hide {
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── Touch-safe tap targets (opt-in via class) ── */
+@media (pointer: coarse) {
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

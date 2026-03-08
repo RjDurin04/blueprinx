@@ -200,11 +200,7 @@ function LoginContent() {
                     )}
                 </h1>
 
-                <p className="text-[14px] leading-[1.6] text-[#6E6E7A] mb-8">
-                    {mode === 'login'
-                        ? 'Continue building your architectural plans.'
-                        : 'Start turning your ideas into comprehensive plans.'}
-                </p>
+
 
                 {/* Error / Success */}
                 {error && (
@@ -219,22 +215,25 @@ function LoginContent() {
                 )}
 
                 {/* OAuth Buttons */}
-                <div className="flex flex-col gap-3 mb-6">
+                <label className="block text-[9px] font-semibold uppercase tracking-[0.2em] text-[#A0A0A8] mb-4 text-center">
+                    Continue with
+                </label>
+                <div className="flex gap-3 mb-6">
                     <button
                         onClick={() => handleOAuth('google')}
-                        className="w-full flex items-center justify-center gap-3 py-3 text-[11px] font-medium uppercase tracking-[0.15em] text-[#0C0C1D] bg-white border border-[#E8E4E0] hover:border-[#C8956C] hover:text-[#C8956C] transition-all duration-[var(--duration-normal)]"
+                        className="flex-1 flex items-center justify-center gap-2 py-3 text-[11px] font-medium uppercase tracking-[0.15em] text-[#0C0C1D] bg-white border border-[#E8E4E0] hover:border-[#C8956C] hover:text-[#C8956C] transition-all duration-[var(--duration-normal)]"
                         style={{ borderRadius: 'var(--radius)' }}
                     >
                         <GoogleIcon />
-                        Continue with Google
+                        Google
                     </button>
                     <button
                         onClick={() => handleOAuth('github')}
-                        className="w-full flex items-center justify-center gap-3 py-3 text-[11px] font-medium uppercase tracking-[0.15em] text-[#0C0C1D] bg-white border border-[#E8E4E0] hover:border-[#C8956C] hover:text-[#C8956C] transition-all duration-[var(--duration-normal)]"
+                        className="flex-1 flex items-center justify-center gap-2 py-3 text-[11px] font-medium uppercase tracking-[0.15em] text-[#0C0C1D] bg-white border border-[#E8E4E0] hover:border-[#C8956C] hover:text-[#C8956C] transition-all duration-[var(--duration-normal)]"
                         style={{ borderRadius: 'var(--radius)' }}
                     >
                         <GitHubIcon />
-                        Continue with GitHub
+                        GitHub
                     </button>
                 </div>
 

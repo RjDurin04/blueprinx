@@ -31,7 +31,7 @@ export function AuthHeaderButtons() {
             <div className="flex items-center gap-3 sm:gap-4">
                 <Link
                     href="/login"
-                    className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] text-[#0C0C1D] hover:text-[#C8956C] transition-colors duration-[var(--duration-normal)]"
+                    className="min-h-[44px] flex items-center text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] text-[#0C0C1D] hover:text-[#C8956C] transition-colors duration-[var(--duration-normal)]"
                 >
                     Sign In
                 </Link>
@@ -40,20 +40,20 @@ export function AuthHeaderButtons() {
     }
 
     return (
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
             <Link
                 href="/dashboard"
-                className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-[#A0A0A8] hover:text-[#0C0C1D] transition-colors duration-[var(--duration-normal)]"
+                className="min-h-[44px] flex items-center text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.15em] text-[#A0A0A8] hover:text-[#0C0C1D] transition-colors duration-[var(--duration-normal)]"
             >
                 My Plans
             </Link>
             <div className="w-px h-4 bg-[#E8E4E0]" />
-            <span className="hidden sm:block text-[9px] font-bold text-[#6E6E7A] max-w-[120px] truncate">
+            <span className="hidden md:block text-[9px] font-bold text-[#6E6E7A] max-w-[120px] truncate">
                 {user.email}
             </span>
             <button
                 onClick={handleSignOut}
-                className="text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] text-[#A0A0A8] hover:text-[#D94F4F] transition-colors duration-[var(--duration-normal)]"
+                className="min-h-[44px] flex items-center text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] text-[#A0A0A8] hover:text-[#D94F4F] transition-colors duration-[var(--duration-normal)]"
             >
                 Sign Out
             </button>

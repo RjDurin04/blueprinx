@@ -170,23 +170,24 @@ export default function DashboardPage() {
                                     </p>
                                 </div>
 
-                                <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+                                <div className="flex items-center gap-2 sm:gap-3 md:gap-4 shrink-0">
                                     {(plan.status === 'failed' || plan.status === 'error') && (
                                         <button
                                             onClick={(e) => handleRetry(e, plan)}
-                                            className="hidden sm:flex items-center gap-1.5 text-[9px] font-medium uppercase tracking-[0.1em] text-[#FAFAF7] bg-[#0C0C1D] px-3 py-1.5 hover:bg-[#C8956C] transition-colors"
+                                            className="flex items-center gap-1.5 text-[9px] font-medium uppercase tracking-[0.1em] text-[#FAFAF7] bg-[#0C0C1D] px-2.5 py-1.5 sm:px-3 hover:bg-[#C8956C] transition-colors min-h-[36px] sm:min-h-[auto]"
                                             style={{ borderRadius: 'var(--radius)' }}
                                         >
-                                            <RefreshCcw className="w-3 h-3" /> Retry
+                                            <RefreshCcw className="w-3 h-3" />
+                                            <span className="hidden sm:inline">Retry</span>
                                         </button>
                                     )}
-                                    <span className="hidden sm:block text-[9px] font-medium uppercase tracking-[0.1em] text-[#A0A0A8]">
+                                    <span className="text-[8px] sm:text-[9px] font-medium uppercase tracking-[0.1em] text-[#A0A0A8] hidden xs:block">
                                         {formatDate(plan.created_at)}
                                     </span>
                                     <button
                                         onClick={(e) => handleDeleteRequest(e, plan)}
                                         disabled={deletingId === plan.id}
-                                        className="p-2 text-[#A0A0A8] hover:text-[#D94F4F] transition-colors opacity-0 group-hover:opacity-100"
+                                        className="p-2 min-h-[44px] min-w-[44px] sm:min-h-[auto] sm:min-w-[auto] flex items-center justify-center text-[#A0A0A8] hover:text-[#D94F4F] transition-colors opacity-100 lg:opacity-0 lg:group-hover:opacity-100"
                                         title="Delete plan"
                                     >
                                         {deletingId === plan.id ? (
