@@ -1,0 +1,46 @@
+
+> frontend@0.1.0 build C:\Cursor\planner\fullstack-monorepo
+> next build
+
+   Γû▓ Next.js 15.5.12
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully in 2.2min
+   Linting and checking validity of types ...
+
+./src/lib/auth-client.ts
+11:27  Warning: 'ctx' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+   Collecting page data ...
+   Generating static pages (0/11) ...
+   Generating static pages (2/11) 
+   Generating static pages (5/11) 
+   Generating static pages (8/11) 
+ Γ£ô Generating static pages (11/11)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+Γöî Γùï /                                    3.93 kB         121 kB
+Γö£ Γùï /_not-found                            991 B         103 kB
+Γö£ ╞Æ /api/ai/generate                       136 B         102 kB
+Γö£ ╞Æ /api/auth/[...all]                     136 B         102 kB
+Γö£ Γùï /auth/reset-password                 1.76 kB         122 kB
+Γö£ Γùï /auth/verify-email                   2.42 kB         123 kB
+Γö£ Γùï /blueprint                             136 B         102 kB
+Γö£ ╞Æ /blueprint/[id]                      7.96 kB         118 kB
+Γö£ Γùï /dashboard                           45.4 kB         153 kB
+Γöö Γùï /login                               3.46 kB         124 kB
++ First Load JS shared by all             102 kB
+  Γö£ chunks/893-a6f43431dfb413c6.js       45.8 kB
+  Γö£ chunks/a03dd822-79e6ecdb493f7bf5.js  54.2 kB
+  Γöö other shared chunks (total)          2.08 kB
+
+
+╞Æ Middleware                             35.6 kB
+
+Γùï  (Static)   prerendered as static content
+╞Æ  (Dynamic)  server-rendered on demand
+
