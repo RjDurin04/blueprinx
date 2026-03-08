@@ -35,7 +35,7 @@ export const BlueprintSidebar = React.memo(function BlueprintSidebar({
 
     return (
         <div
-            className="w-full lg:sticky lg:top-8 flex flex-col gap-3 sm:gap-4 p-3 sm:p-5 md:p-6 border border-[#E8E4E0] bg-[#FAFAF7] shadow-[var(--shadow-float)] lg:max-h-[calc(100dvh-4rem)] overflow-y-auto scrollbar-hide will-change-scroll"
+            className="w-full lg:sticky lg:top-8 flex flex-col gap-3 sm:gap-4 p-3 sm:p-5 md:p-6 border border-[#E8E4E0] bg-[#FAFAF7] shadow-[var(--shadow-float)] lg:max-h-[calc(100dvh-4rem)]"
             style={{ borderRadius: 'var(--radius)' }}
         >
             <div className="flex items-center gap-2 mb-0.5 sm:mb-1 pb-2 sm:pb-3 border-b border-[#E8E4E0]">
@@ -74,7 +74,7 @@ export const BlueprintSidebar = React.memo(function BlueprintSidebar({
             )}
 
             {/* ── Navigation buttons ── */}
-            <div className="flex flex-col gap-1.5 sm:gap-2 mt-2 sm:mt-4">
+            <div className="flex flex-col gap-1.5 sm:gap-2 mt-2 sm:mt-4 shrink-0">
                 <Link
                     href="/dashboard"
                     className="w-full py-2 sm:py-2.5 text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.2em] text-[#0C0C1D] border border-[#E8E4E0] hover:border-[#C8956C] hover:text-[#C8956C] transition-all duration-[var(--duration-normal)] ease-[var(--ease-out-expo)] bg-white text-center inline-flex items-center justify-center gap-2"
@@ -97,8 +97,8 @@ export const BlueprintSidebar = React.memo(function BlueprintSidebar({
 
             {/* ── Table of Contents ── */}
             {!isGenerating && tableOfContents.length > 0 && (
-                <div className="hidden lg:flex flex-col gap-2 sm:gap-2.5 mt-3 sm:mt-5 pt-3 sm:pt-5 border-t border-[#E8E4E0] w-full min-h-0 flex-1">
-                    <div className="flex items-center gap-2 mb-0.5 sm:mb-1">
+                <div className="hidden lg:flex flex-col gap-2 sm:gap-2.5 mt-3 sm:mt-5 pt-3 sm:pt-5 border-t border-[#E8E4E0] w-full min-h-0 flex-1 overflow-hidden">
+                    <div className="flex items-center gap-2 mb-0.5 sm:mb-1 shrink-0">
                         <AlignLeft className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#0C0C1D]" />
                         <h3 className="text-[8px] sm:text-[9px] font-semibold uppercase tracking-[0.2em] text-[#0C0C1D]">
                             Sections
