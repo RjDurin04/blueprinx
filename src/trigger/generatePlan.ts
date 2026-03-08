@@ -46,7 +46,6 @@ export const generatePlanTask = task({
 
             let finalContent = "";
             let isStreamSuccessful = false;
-            let streamReader: ReadableStreamDefaultReader<Uint8Array> | null = null;
             let selectedModel = "";
 
             // 2. Fallback loop for robust model selection
