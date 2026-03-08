@@ -184,7 +184,7 @@ const REMARK_PLUGINS = [remarkGfm];
 
 function MarkdownRendererInner({ content }: MarkdownRendererProps) {
     return (
-        <div className="max-w-none w-full markdown-content overflow-x-hidden">
+        <div className="max-w-none w-full markdown-content">
             <ReactMarkdown remarkPlugins={REMARK_PLUGINS} components={COMPONENTS}>
                 {content}
             </ReactMarkdown>

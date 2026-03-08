@@ -222,14 +222,8 @@ pre {
   -webkit-overflow-scrolling: touch;
   overflow-wrap: break-word;
   word-break: break-word;
-  overflow-x: hidden;
-}
-
-/* ── Lock markdown width on mobile to prevent viewport zoom ── */
-@media (max-width: 1024px) {
-  .markdown-content {
-    contain: inline-size;
-  }
+  overflow-x: clip;
+  /* clip prevents viewport expansion without breaking inner scroll containers */
 }
 
 /* ── Optimize off-screen content rendering ── */
