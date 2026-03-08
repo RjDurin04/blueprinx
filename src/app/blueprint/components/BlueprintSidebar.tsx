@@ -35,7 +35,7 @@ export const BlueprintSidebar = React.memo(function BlueprintSidebar({
 
     return (
         <div
-            className="w-full lg:sticky lg:top-8 flex flex-col gap-3 sm:gap-4 p-3 sm:p-5 md:p-6 border border-[#E8E4E0] bg-[#FAFAF7] shadow-[var(--shadow-float)] lg:max-h-[calc(100dvh-4rem)]"
+            className="w-full lg:sticky lg:top-8 flex flex-col gap-3 sm:gap-4 p-3 sm:p-5 md:p-6 border border-[#E8E4E0] bg-[#FAFAF7] shadow-[var(--shadow-float)] lg:max-h-[calc(100dvh-4rem)] lg:overflow-hidden"
             style={{ borderRadius: 'var(--radius)' }}
         >
             <div className="flex items-center gap-2 mb-0.5 sm:mb-1 pb-2 sm:pb-3 border-b border-[#E8E4E0]">
