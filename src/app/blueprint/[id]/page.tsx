@@ -178,7 +178,7 @@ export default function SavedBlueprintPage() {
     }
 
     return (
-        <div className="min-h-dvh bg-[#FAFAF7] selection:bg-[#C8956C]/20">
+        <div className="min-h-dvh bg-[#FAFAF7] selection:bg-[#C8956C]/20 overflow-x-hidden">
             {/* Scroll to Top */}
             <button
                 onClick={scrollToTop}
@@ -222,8 +222,11 @@ export default function SavedBlueprintPage() {
                                 <h3 className="text-[14px] sm:text-[16px] font-semibold text-[#0C0C1D] uppercase tracking-[0.15em] mb-3">
                                     Building Your Blueprint
                                 </h3>
-                                <p className="text-[11px] sm:text-[12px] text-[#6E6E7A] text-center max-w-[320px] leading-relaxed mb-8">
-                                    Our AI is crafting your plan. This page will update automatically when it&apos;s ready.
+                                <p className="text-[11px] sm:text-[12px] text-[#6E6E7A] text-center max-w-[340px] leading-relaxed mb-3">
+                                    AI is crafting your plan. This may take a few minutes.
+                                </p>
+                                <p className="text-[10px] sm:text-[11px] text-[#A0A0A8] text-center max-w-[320px] leading-relaxed mb-8 italic">
+                                    Feel free to leave this page — your plan will be ready when you come back.
                                 </p>
 
                                 {/* Animated progress steps */}

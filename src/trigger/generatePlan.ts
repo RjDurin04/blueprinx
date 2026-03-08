@@ -79,14 +79,21 @@ export const generatePlanTask = task({
                                 ],
                                 temperature: 0.1,    // More deterministic for code structure
                                 max_tokens: 10000,   // Do not truncate the large output
-                                stream: true,
+                                stream: false,
                             }),
                         });
 
-                        if (response.ok && response.body) {
-                            streamReader = response.body.getReader();
-                            selectedModel = model;
-                            break;
+                        if (response.ok) {
+                            const data = await response.json();
+                            if (data.choices?.[0]?.message?.content) {
+                                finalContent = data.choices[0].message.content;
+                                isStreamSuccessful = true;
+                                selectedModel = model;
+                                break;
+                            } else {
+                                logger.error("OpenRouter response missing content", { data });
+                                throw new Error("API returned success but no content");
+                            }
                         }
 
                         if (response.status === 429) {
@@ -112,85 +119,15 @@ export const generatePlanTask = task({
                         break;
                     }
                 }
-                if (streamReader) break;
+                if (isStreamSuccessful) break;
             }
 
-            if (!streamReader) {
+            if (!isStreamSuccessful) {
                 // Status update handled by finally if we throw here
-                throw new Error("All AI models failed to provide a stream.");
+                throw new Error("All AI models failed to provide a valid response.");
             }
 
-            // 3. Process Stream & Update DB Debounced
-            logger.info(`Stream connected successfully using ${selectedModel}`);
-            const decoder = new TextDecoder("utf-8");
-            let buffer = "";
-
-            let lastDbUpdateTime = Date.now();
-            // Update DB every 1.5 seconds so Supabase Realtime accurately streams to frontend
-            const DB_UPDATE_INTERVAL = 1500;
-
-            try {
-                while (true) {
-                    const { done, value } = await streamReader.read();
-
-                    if (done) {
-                        isStreamSuccessful = true;
-                        break;
-                    }
-
-                    buffer += decoder.decode(value, { stream: true });
-                    const lines = buffer.split("\n");
-
-                    // Keep the last incomplete line in the buffer
-                    buffer = lines.pop() || "";
-
-                    let hasNewContent = false;
-
-                    for (const line of lines) {
-                        if (line.trim() === "") continue;
-                        if (line.startsWith("data: ")) {
-                            const dataStr = line.replace("data: ", "").trim();
-                            if (dataStr === "[DONE]") continue;
-
-                            try {
-                                const data = JSON.parse(dataStr);
-                                if (data.error) {
-                                    logger.error("API streaming error payload", { error: data.error });
-                                    break; // Force break out if the provider mid-stream aborts
-                                }
-
-                                const content = data.choices?.[0]?.delta?.content;
-                                if (content) {
-                                    finalContent += content;
-                                    hasNewContent = true;
-                                }
-                            } catch {
-                                // Ignore unparseable JSON stream chunks
-                            }
-                        }
-                    }
-
-                    // Periodically sync the buffer to Supabase
-                    const now = Date.now();
-                    if (hasNewContent && now - lastDbUpdateTime > DB_UPDATE_INTERVAL) {
-                        try {
-                            await supabase.from("plans").update({ content: finalContent }).eq("id", planId).eq("user_id", userId);
-                            lastDbUpdateTime = now;
-                        } catch (err) {
-                            logger.warn("Transient Supabase update error:", { err });
-                        }
-                    }
-                }
-            } catch (err: unknown) {
-                logger.error("Stream reading error:", { err });
-                // Check if it's a SocketError/fetch failed but we have content
-                if (finalContent.length > 500) {
-                    logger.info("Socket interrupted but significant content captured. Attempting to finalize partial plan.");
-                    isStreamSuccessful = true; // Treat as success to allow finalization
-                } else {
-                    throw err; // Re-throw if it failed too early
-                }
-            }
+            logger.info(`Generation completed successfully using ${selectedModel}`);
 
             // 4. Final DB save and status update
             if (isStreamSuccessful) {

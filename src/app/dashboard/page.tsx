@@ -168,6 +168,11 @@ export default function DashboardPage() {
                                         {plan.prompt.slice(0, 100)}
                                         {plan.prompt.length > 100 ? '...' : ''}
                                     </p>
+                                    {plan.status === 'generating' && (
+                                        <p className="text-[10px] sm:text-[11px] text-[#C8956C]/80 mt-1.5 italic">
+                                            Generation may take a few minutes. Feel free to leave — your plan will be ready when you come back.
+                                        </p>
+                                    )}
                                 </div>
 
                                 <div className="flex items-center gap-2 sm:gap-3 md:gap-4 shrink-0">
