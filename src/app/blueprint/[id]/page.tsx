@@ -270,11 +270,11 @@ export default function SavedBlueprintPage() {
                                     <div className="w-px h-6 bg-[#E8E4E0] my-auto mx-0 sm:mx-1" />
                                     <button onClick={() => handleDownload('md')} className="min-h-[44px] px-3 flex items-center justify-center text-[#6E6E7A] hover:text-[#0C0C1D] hover:bg-[#F0EDE8] transition-colors rounded-md gap-1" title="Download (.md)">
                                         <Download className="w-4 h-4" />
-                                        <span className="hidden sm:inline text-[9px] font-medium uppercase tracking-wider">.md</span>
+                                        <span className="text-[9px] font-medium uppercase tracking-wider">.md</span>
                                     </button>
                                     <button onClick={() => handleDownload('txt')} className="min-h-[44px] px-3 flex items-center justify-center text-[#6E6E7A] hover:text-[#0C0C1D] hover:bg-[#F0EDE8] transition-colors rounded-md gap-1" title="Download (.txt)">
                                         <Download className="w-4 h-4" />
-                                        <span className="hidden sm:inline text-[9px] font-medium uppercase tracking-wider">.txt</span>
+                                        <span className="text-[9px] font-medium uppercase tracking-wider">.txt</span>
                                     </button>
                                 </div>
 
