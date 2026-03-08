@@ -222,12 +222,17 @@ pre {
   -webkit-overflow-scrolling: touch;
   overflow-wrap: break-word;
   word-break: break-word;
+  contain: inline-size;
+  /* CRITICAL: locks width independent of children — prevents viewport expansion */
+  overflow-x: hidden;
+  /* explicit CSS backup for Tailwind class */
 }
 
 /* ── Optimize off-screen content rendering ── */
-/* content-visibility: auto removed — it caused sudden layout reflows
-   when wide elements (tables) scrolled into view on mobile, triggering
-   browser viewport zoom. */
+.markdown-content>* {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 50px;
+}
 
 /* ── Reduce paint area for fixed decorative elements ── */
 .blueprint-grid {
