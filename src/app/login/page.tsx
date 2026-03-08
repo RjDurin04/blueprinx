@@ -4,6 +4,7 @@ import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { signIn, signUp, requestPasswordReset } from '@/lib/auth-client';
 import Link from 'next/link';
+import { mutate } from 'swr';
 
 type AuthMode = 'login' | 'register';
 
@@ -65,6 +66,7 @@ function LoginContent() {
                     return;
                 }
 
+                await mutate('auth-session');
                 router.push(redirectTo);
                 router.refresh();
             }
