@@ -225,10 +225,9 @@ pre {
 }
 
 /* ── Optimize off-screen content rendering ── */
-.markdown-content>* {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 50px;
-}
+/* content-visibility: auto removed — it caused sudden layout reflows
+   when wide elements (tables) scrolled into view on mobile, triggering
+   browser viewport zoom. */
 
 /* ── Reduce paint area for fixed decorative elements ── */
 .blueprint-grid {
@@ -286,7 +285,7 @@ html {
 
   .markdown-content,
   .scrollbar-hide {
-    touch-action: pan-x pan-y;
+    touch-action: manipulation;
     -webkit-overflow-scrolling: touch;
   }
 }
