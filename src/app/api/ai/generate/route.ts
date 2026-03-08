@@ -9,13 +9,17 @@ export async function POST(request: Request) {
     try {
         // ── CSRF / Origin validation ──
         const origin = request.headers.get('origin');
+        const host = request.headers.get('host');
         const allowedOrigins = [
             process.env.NEXT_PUBLIC_SITE_URL,
             'http://localhost:3000',
             'http://localhost:3001',
+            `http://${host}`,
+            `https://${host}`
         ].filter(Boolean);
 
-        if (!origin || !allowedOrigins.includes(origin)) {
+        if (origin && !allowedOrigins.includes(origin)) {
+            console.warn(`[AI Route] Forbidden origin detected: ${origin}`);
             return Response.json({ error: { code: 'FORBIDDEN', message: 'Invalid request origin.' } }, { status: 403 });
         }
 
