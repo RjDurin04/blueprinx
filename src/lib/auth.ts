@@ -35,10 +35,6 @@ async function sendEmailJSEmail(
 }
 
 export const auth = betterAuth({
-    baseURL: process.env.BETTER_AUTH_URL ||
-        (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` :
-            process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` :
-                process.env.NEXT_PUBLIC_SITE_URL),
     database: new Pool({
         // Uses the direct Postgres connection string to Supabase
         connectionString: process.env.DATABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL,
